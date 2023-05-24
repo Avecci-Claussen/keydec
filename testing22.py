@@ -69,12 +69,12 @@ def write_found_keys_to_file(filename, found_keys):
             file.write(f"{found_hash160}: {found_private_key}\n")
 
 if __name__ == "__main__":
-    start_number = 48486532953574987957
-    end_number = 62136754624128405710 - 1
+    start_number = 1
+    end_number = 100000 - 1
     target_hashes_filename = "hashes.txt"
     target_hashes = read_hashes_from_file(target_hashes_filename)
     num_cores = 52  # Set the number of CPU cores you want to use.
-    subrange_size = 10000000000000000000  # Set the size of each subrange based on your memory requirements.
+    subrange_size = 400000  # Set the size of each subrange based on your memory requirements.
 
     found_keys = parallel_private_key_search(start_number, end_number, target_hashes, num_cores, subrange_size)
 
